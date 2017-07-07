@@ -2,21 +2,29 @@
 // Daniel Shiffman
 // http://natureofcode.com
 
-var ps;
+// Particles are generated each cycle through draw(),
+// fall with gravity and fade out over time
+// A ParticleSystem object manages a variable size 
+// list of particles.
+
+// an array of ParticleSystems
+var systems = [];
 
 function setup() {
+  var text = createP("click to add particle systems");
+  text.position(10,365);
+
   createCanvas(640,360);
-  setFrameRate(60);
-  ps = new ParticleSystem(createVector(width/2, 50));
 }
 
 function draw() {
   background(51);
+  for(var i = 0; i < systems.length; i++){
+    systems[i].addParticle();
+    systems[i].run();
+  }
+}
 
-  // Apply gravity force to all Particles
-  var gravity = createVector(0, 0.1);
-  ps.applyForce(gravity);
-
-  ps.addParticle();
-  ps.run();
+function mousePressed() {
+  systems.push(new ParticleSystem(1, createVector(mouseX, mouseY)));
 }
