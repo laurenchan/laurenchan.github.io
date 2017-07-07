@@ -6,11 +6,12 @@
 
 // A simple Particle class
 
-var Particle = function(position) {
+var Particle = function(position, tmpC1, tmpC2, tmpC3) {
   this.acceleration = createVector(0, 0.05);
   this.velocity = createVector(random(-1, 1), random(-1, 0));
   this.position = position.copy();
   this.lifespan = 255.0;
+  this.color = color(tmpC1, tmpC2, tmpC3);
 
   this.run = function() {
     this.update();
@@ -28,7 +29,7 @@ var Particle = function(position) {
   this.display = function() {
     stroke(255, this.lifespan);
     strokeWeight(2);
-    fill(127, this.lifespan);
+    fill(this.color, this.lifespan);
     ellipse(this.position.x, this.position.y, 12, 12);
   };
 

@@ -5,12 +5,15 @@
 var ParticleSystem = function(num, position) {
 	this.origin = position.copy();
 	this.particles = [];
+	this.tc1 = random(255);
+	this.tc2 = random(255);
+	this.tc3 = random(255);
   for (var i = 0; i < num; i++) {
-      this.particles.push(new Particle(this.origin));    // Add "num" amount of particles to the arraylist
+      this.particles.push(new Particle(this.origin, this.tc1, this.tc2, this.tc3));    // Add "num" amount of particles to the arraylist
       }
 
   this.addParticle = function() {
-  	this.particles.push(new Particle(this.origin));
+  	this.particles.push(new Particle(this.origin, this.tc1, this.tc2, this.tc3));
   };
 
   this.run = function() {
