@@ -1,0 +1,419 @@
+@charset "UTF-8";
+/* CSS Document */
+html {
+    background-color: #e6e9e9;
+/*    background-image: -webkit-linear-gradient(270deg,rgb(230,233,233) 0%,rgb(216,221,221) 100%);*/
+/*    background-image: linear-gradient(270deg,rgb(230,233,233) 0%,rgb(216,221,221) 100%);*/
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+body {
+    margin: 25px auto;
+    padding: 2em 2em 4em;
+    max-width: 700px;
+    min-height: 500px;
+    height: auto;
+/*    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font-family: "Arial", Helvetica, Arial, sans-serif;
+    font-size: 12px; 
+    font-weight:100;
+    color: #666;
+    background-color: #ffffff;
+    -webkit-box-shadow: 3px 3px 5px 2px rgba(122,121,122,1);
+    -moz-box-shadow: 3px 3px 5px 2px rgba(122,121,122,1);
+    box-shadow: 3px 3px 5px 2px rgba(122,121,122,1);
+}
+/*html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body{
+	margin: 5px auto;
+    padding: 2em 2em 4em;
+    max-width: 700px;
+	font-size: 14px;
+	color: #666;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 200;
+    background-color: #ffffff;
+}
+*/
+h1, h3, h4, h5, h6{
+	font-weight: 500;
+    margin: 0px;
+	color: #336;
+}
+
+h2 {
+	font-weight: 600;
+	margin: 0px 0px 5px -20px;
+	color: darkgreen
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Teaching</title>
+<link href="main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<img src="images/banner09.jpg" width=680px align="center" />
+
+<div id="menu">
+	<table>
+    	<tr>       	
+			<td><a href="index.html">home</a></td>
+            <td><a href="people.html">people</a></td>
+			<td><a href="research.html">research</a></td>
+			<td class="here">teaching</td>
+			<td><a href="publications.html">publications</a></td>
+			<td><a href="photos.html">photos</a></td>
+			<td><a href="resources.html">resources</a></td>
+        </tr>
+    </table>
+</div>
+
+<div id="content">
+    <h2>Fall 2016</h2>
+    <h3>Office hours</h3>
+    <p>M 9-10, W 2:10-3:30, Th 1-2, and by appointment.</p>
+
+    <h3>Vertebrate Zoology, BIOL420</h3>
+    A study of the vertebrates, including their systematics, life histories, morphological and physiological adaptations, behavior and conservation. Laboratory work (including investigative and observational studies as well as taxonomy and comparative morphology) and field experiences (to local wetlands, streams and forests) are integrated in the course. Prerequisite: BIOL 204 with a minimum grade of C-. 4 credits.
+    <p> </p>
+    <hr width="95%">
+</div>
+
+<div id="content">
+	<h2>Spring 2017</h2>
+    <h3>Evolutionary Biology, BIOL444</h3>
+    <p> </p>
+
+     <h3>Advanced Research Methods, BIOL489</h3>
+     This course focuses on using genetic data to address research questions of conservation importance. Students will work collaboratively to investigate original research questions using a combination of field, laboratory, and analytical approaches. Projects include studies of amphibians and reptiles from western North America and students will gain research experience in all aspects of research from formation of a question to data collection and analysis to interpretation and presentation.
+     <em>Contact me for permission to enroll.</em>
+    <p> </p>
+    <hr width="95%">
+</div>
+
+<div id="content">
+    <h2>Past courses</h2>
+    <h4>Special Topics: Molecular Ecology, BIOL360 (Spring 2016)</h4>
+    <p> </p>
+ 
+    <h3>Introductory Biology, Flow of Information, BIOL201L (Spring 2016)</h3>
+    <p> </p>
+
+
+    <h3>Introductory Biology, Bio44L</h3>
+    Spring 2015, 2014. Keck Science Department, Claremont Colleges
+<!-- 
+    <p>Blurb goes here</p>
+ -->
+    <p></p>
+    <h3>Applied Ecology and Conservation, Bio139</h3>
+ 	Fall 2014. Keck Science Department, Claremont Colleges
+<!-- 
+    <p>Blurb goes here</p>
+ -->
+    <p></p>
+    <h3>Advanced Topics in Environmental Biology, Bio165</h3>
+	Fall 2014. Keck Science Department, Claremont Colleges
+<!-- 
+    <p>Blurb goes here</p>
+ -->
+</div>
+
+</body>
+</html>
+
+p, ul, li{
+	font-size: 14px;
+	line-height: 120%;
+	text-align: left;
+	color: #666;
+	margin-top: 0px;
+}
+
+a{
+	text-decoration: none;
+	color: #360;
+}
+
+a:hover{
+	color: #900;
+}
+
+.smallfont {
+	font-size: 10px;
+    line-height: 100%;
+	}
+
+.medfont {
+	font-size: 14px;
+	}
+
+.center {
+	text-align: center;
+}
+
+/***** HEADER ******/
+#header {
+	width: 100%;
+	margin: 0px auto 0px auto;
+}
+
+#header li{
+	margin-left: -20px;
+	list-style: none;
+}
+
+#header a{
+	text-decoration:none;
+	color: #666;
+}
+
+#header a:hover{
+	color: #900;
+}
+
+/***** MENU ******/
+#menu{
+	color: #666;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+#menu table{
+	width: 680px;
+	height: 35px;
+    border-spacing: 2px;
+}
+
+#menu td{
+	width: 96px;
+	text-align:center;
+/*	background-color: #AAA; */
+/*	background-color: #699; */
+}
+
+#menu a{
+	text-decoration: none;
+	color: #D60;
+}
+
+#menu td:hover{
+	background-color: lightgray;
+}
+
+#menu td.here {
+    font-weight: bold;
+    color: gray;
+}
+
+
+/* Non bulletted list */
+/* Publications List */
+#publist {
+	width: 620px;
+	margin: 20px auto 0px auto;
+}
+
+#publist ul{
+	margin-left: -20px;
+	margin-bottom: 20px;
+	}
+	
+
+#publist li{
+	margin-top: 10px;
+	line-height: 115%;
+	text-align: left;
+	margin-left: 10px;
+	list-style: none;
+}
+
+/* General Pages */
+#content{
+	width: 620px;
+	margin: 20px auto 10px auto;
+    align-content: center;
+}
+
+#content table{
+	width: 100%;
+}
+
+#content ul{
+    line-height: 150%;
+    list-style: none;
+    margin: 0px;
+    border-left: 1px solid #aaa;
+}
+
+#frontpage{
+	width: 620px;
+	margin: 20px auto 10px auto;
+    align: center;
+}
+
+#resources{
+	width: 620px;
+	margin: 20px auto 10px auto;
+    line-height: 150%;
+    text-align: center;
+}
+
+#resources table{
+	width: 100%;
+    vertical-align: top;
+}
+
+#resources td{
+    width: 33%;
+    vertical-align: text-top;
+}
+
+#resources a{
+    text-decoration: none;
+    color:inherit;
+    
+}
+
+
+.paragraph {
+	line-height: 120%;
+	font-size: 14px;
+	color: #666;
+	width: auto;
+	margin: 10px auto 10px auto;
+	}
+
+.paragraph a{
+	color: #360;
+	font-style: italic;
+}
+
+.paragraph a:hover{
+	color: #C60;
+}
+
+/* Font Styles */
+.date {
+	font-weight: bold;
+	color: darkslategray;
+}
+
+.pdf ul, li{
+	font-size: 14px}
+
+.pdf a{
+	color: #C60;
+	font-weight: normal;
+	text-decoration: none;
+	}
+
+.pdf a:hover{
+	color: #C30;
+	}
+
+.links a{
+	color: #900;
+	text-decoration: none
+    
+}
+
+.links a:hover{
+	color: #C60;
+}
+
+
+/* Thumb viewers */
+.thumbs{
+  clear: both;
+  width: 510px;
+  margin:0 auto;
+  position: relative;
+  overflow: auto;
+}
+
+.thumbs ul{
+  padding:0;
+  margin:0;
+  list-style-type:none;
+  width: 1000px;
+}
+
+.thumbs li{
+  float:left;
+  padding:0;
+  margin:5px 5px 0 0;
+  display: inline;
+}
+
+.thumbs li a{
+  background-color:#2B2B2B;
+  margin:0;
+  padding:5px;
+  display:block;
+  width: 125px;
+  height: 75px;
+  text-decoration:none;
+  color: #fff;
+}
+
+.thumbs li a:hover, .thumbs li.active a{
+  background-color:gray;
+}
+
+.thumbs img{
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.viewer{
+  clear: both;
+  margin:10px auto;
+  padding:0;
+  background-color:gray;
+  overflow:hidden;
+  height:310px;
+  width:510px;
+  color: #fff;
+  font-size: .9em;
+}
+
+.viewer img{
+  border: 5px solid gray;
+}
+
+.viewer-image{
+  clear:both;
+  padding:0;
+  margin:0;
+  position: relative;
+  display: block;
+  height:310px;
+  width:510px;
+}
+
+.viewer-image cite {
+  background: #111;
+  -moz-opacity:.7;
+  filter:alpha(opacity=70);
+  opacity:.7;
+  color: #fff;
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 480px;
+  padding: 10px;
+  margin: 5px;
+  border-top: 1px solid #999;
+  font-style: normal;
+}
