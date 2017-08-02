@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Exercise 2 - Setting the Loci</title>
+</head>
+<body style="padding: 5px;">
+<h2 class="orange">Exercise 2 - Setting the Loci</h2>
+<p>Select <a href="A02|A04|A05|A06|A07|A08|A09">all</a> remaining traces.  To set the loci, click the <b>Locus Info</b> button to bring up a dialogue like this:</p>
+<br><center><img src="SetLocusInfo.png"></center>
+<p>Work through all the dyes setting them as per this table. These settings are based on the known characteristics of the microsatellite loci we are using.<p>
+<center><table border="1">
+<tr>
+<td><b>Trace</b></td>
+<td><b>Expected number of peaks</b></td>
+<td><b>Repeat Unit</b></td>
+<td><b>Range Start</b></td>
+<td><b>Range Stop</b></td>
+</tr>
+<tr>
+<td><font color="#0000FF"><b>6-FAM</b></font></td>
+<td><center>2</center></td>
+<td><center>4</center></td>
+<td><center>160</center></td>
+<td><center>450</center></td>
+</tr>
+<tr>
+<td><font color="#00AA00"><b>VIC</b></font></td>
+<td><center>2</center></td>
+<td><center>4</center></td>
+<td><center>200</center></td>
+<td><center>280</center></td>
+</tr>
+<tr>
+<td><b>NED</b></td>
+<td><center>2</center></td>
+<td><center>4</center></td>
+<td><center>200</center></td>
+<td><center>320</center></td>
+</tr>
+<tr>
+<td><font color="#FF0000"><b>PET</b></font></td>
+<td><center>2</center></td>
+<td><center>4</center></td>
+<td><center>140</center></td>
+<td><center>480</center></td>
+</tr>
+</table></center>
+<p>Click <b>OK</b>, then save the loci as a new file by clicking the <b>Save</b> button.  This will bring up the following dialogue allowing you to choose a suitable name.</p>
+<center><img src="SaveLoci.png"></center>
+<p>Again, check your data and fix any peaks that appear to be in the right range and haven't been called.  You can do this by unchecking all but one dye and then Geneious will draw the size range for each locus so you can see that all your peaks fit within that.  If not, you can edit the values again and resave.</p>
+<p>Here's what the locus region for <font color="#FF0000"><b>PET</b></font> should look like:</p>
+<center><img src="LociRegion.png"></center>
+<p>Known data artefacts such as plus-A, minus-A, stutter (slippage) peaks and pull-up could exist.  Here you'll see plus-A, minus-A and stutter peaks as well as the main peak which should have been automatically called.  Plus-A or minus-A (caused by incomplete addition of terminal A nucleotides in the PCR) will be the smaller peak that is one bp away, and stutter peaks are minor peaks that are 1-4 repeat units away from the actual peak.</p>
+
+<p>In particular, look at <a href="A06|A09">A06 and A09</a> because these appear to have similar peaks which haven't been called for the <font color="#FF0000"><b>PET</b></font> trace.  First, look at the called peaks and see that they are the product of stutter so you should remove the peak for the shorter of the pair, and where a peak isn't called, add one.  The correct peaks should be at about 404 and 462 in both sequences.  Similarly, in <a href="A05|A08">A05 and A08</a> there are stutter peaks at 211 that need to be removed as well.  Save your edited documents - they should look like this:</p>
+<center><img src="PETpeakcalls.png"></center>
+
+<p>Now that you've set the loci and corrected the incorrect peak calls you can move on and perform the binning step.</p>
+<br>
+<b>Exercise 3: <a href="exercise3.html"><u>Binning</u></a></b><br>
+</body>
+</html>
