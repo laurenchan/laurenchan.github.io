@@ -10,7 +10,7 @@ html {
 
 
 body {
-    margin: 25px auto;
+    margin: 0 auto 25px auto;
     padding: 2em 2em 4em;
     max-width: 700px;
     min-height: 500px;
@@ -21,12 +21,12 @@ body {
     font-weight:100;
     color: #666;
     background-color: #ffffff;
-    -webkit-box-shadow: 3px 3px 5px 2px rgba(122,121,122,1);
-    -moz-box-shadow: 3px 3px 5px 2px rgba(122,121,122,1);
-    box-shadow: 3px 3px 5px 2px rgba(122,121,122,1);
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(122,121,122,1);
+/*    -moz-box-shadow: 0px 4px 2px 1px rgba(122,121,122,1);*/
+/*    box-shadow: 0px 4px 2px 1px rgba(122,121,122,1);*/
+    -webkit-font-smoothing: antialiased;
 }
 /*html {
-    -webkit-font-smoothing: antialiased;
 }
 
 body{
@@ -51,84 +51,6 @@ h2 {
 	margin: 0px 0px 5px -20px;
 	color: darkgreen
 }
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Teaching</title>
-<link href="main.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-<img src="images/banner09.jpg" width=680px align="center" />
-
-<div id="menu">
-	<table>
-    	<tr>       	
-			<td><a href="index.html">home</a></td>
-            <td><a href="people.html">people</a></td>
-			<td><a href="research.html">research</a></td>
-			<td class="here">teaching</td>
-			<td><a href="publications.html">publications</a></td>
-			<td><a href="photos.html">photos</a></td>
-			<td><a href="resources.html">resources</a></td>
-        </tr>
-    </table>
-</div>
-
-<div id="content">
-    <h2>Fall 2016</h2>
-    <h3>Office hours</h3>
-    <p>M 9-10, W 2:10-3:30, Th 1-2, and by appointment.</p>
-
-    <h3>Vertebrate Zoology, BIOL420</h3>
-    A study of the vertebrates, including their systematics, life histories, morphological and physiological adaptations, behavior and conservation. Laboratory work (including investigative and observational studies as well as taxonomy and comparative morphology) and field experiences (to local wetlands, streams and forests) are integrated in the course. Prerequisite: BIOL 204 with a minimum grade of C-. 4 credits.
-    <p> </p>
-    <hr width="95%">
-</div>
-
-<div id="content">
-	<h2>Spring 2017</h2>
-    <h3>Evolutionary Biology, BIOL444</h3>
-    <p> </p>
-
-     <h3>Advanced Research Methods, BIOL489</h3>
-     This course focuses on using genetic data to address research questions of conservation importance. Students will work collaboratively to investigate original research questions using a combination of field, laboratory, and analytical approaches. Projects include studies of amphibians and reptiles from western North America and students will gain research experience in all aspects of research from formation of a question to data collection and analysis to interpretation and presentation.
-     <em>Contact me for permission to enroll.</em>
-    <p> </p>
-    <hr width="95%">
-</div>
-
-<div id="content">
-    <h2>Past courses</h2>
-    <h4>Special Topics: Molecular Ecology, BIOL360 (Spring 2016)</h4>
-    <p> </p>
- 
-    <h3>Introductory Biology, Flow of Information, BIOL201L (Spring 2016)</h3>
-    <p> </p>
-
-
-    <h3>Introductory Biology, Bio44L</h3>
-    Spring 2015, 2014. Keck Science Department, Claremont Colleges
-<!-- 
-    <p>Blurb goes here</p>
- -->
-    <p></p>
-    <h3>Applied Ecology and Conservation, Bio139</h3>
- 	Fall 2014. Keck Science Department, Claremont Colleges
-<!-- 
-    <p>Blurb goes here</p>
- -->
-    <p></p>
-    <h3>Advanced Topics in Environmental Biology, Bio165</h3>
-	Fall 2014. Keck Science Department, Claremont Colleges
-<!-- 
-    <p>Blurb goes here</p>
- -->
-</div>
-
-</body>
-</html>
 
 p, ul, li{
 	font-size: 14px;
