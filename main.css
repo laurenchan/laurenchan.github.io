@@ -252,7 +252,7 @@ div.desc strong{
 
 div.gallery2 {
     border: 0px solid #ccc;
-    margin: 30px;
+    margin: 10px;
     height: 250px;
 }
 
@@ -263,7 +263,7 @@ div.gallery2 img {
 .responsive2 {
     padding: 0 30 0 30px;
     float: left;
-    width: 24.9999%;
+    width: 24.99%;
 }
 
 @media only screen and (max-width: 800px) {
