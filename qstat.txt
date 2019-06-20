@@ -1,13 +1,13 @@
-Wed Jun 19 22:01:30 PDT 2019
+Wed Jun 19 22:12:59 PDT 2019
 Queue              Max    Tot   Ena   Str   Que   Run   Hld   Wat   Trn   Ext T   Cpt
 ----------------   ---   ----    --    --   ---   ---   ---   ---   ---   --- -   ---
-batch               22      2   yes   yes     0     2     0     0     0     0 E     0
+batch               22      4   yes   yes     0     3     0     0     0     0 E     1
 Queue              Max    Tot   Ena   Str   Que   Run   Hld   Wat   Trn   Ext T   Cpt
 ----------------   ---   ----    --    --   ---   ---   ---   ---   ---   --- -   ---
-batch               22      2   yes   yes     0     2     0     0     0     0 E     0
+batch               22      4   yes   yes     0     3     0     0     0     0 E     1
 Queue              Max    Tot   Ena   Str   Que   Run   Hld   Wat   Trn   Ext T   Cpt
 ----------------   ---   ----    --    --   ---   ---   ---   ---   ---   --- -   ---
-batch               22      2   yes   yes     0     2     0     0     0     0 E     0
+batch               22      4   yes   yes     0     3     0     0     0     0 E     1
 Queue              Max    Tot   Ena   Str   Que   Run   Hld   Wat   Trn   Ext T   Cpt
 ----------------   ---   ----    --    --   ---   ---   ---   ---   ---   --- -   ---
-batch               22      2   yes   yes     0     2     0     0     0     0 E     0
+batch               22      4   yes   yes     0     3     0     0     0     0 E     1
