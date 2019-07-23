@@ -101,7 +101,7 @@
         getTree(taxa, "#tree_display");
       }
     };
-    xmlhttp.open("GET", "https://api.inaturalist.org/v1/observations/species_counts?project=" + document.getElementById("myText").value + "&place_id=any&verifiable=any&captive=any&identified=true", true);
+    xmlhttp.open("GET", "http://www.inaturalist.org/projects/" + document.getElementById("myText").value + "&place_id=any&verifiable=any&captive=any&identified=true", true);
     xmlhttp.send();
 
 
