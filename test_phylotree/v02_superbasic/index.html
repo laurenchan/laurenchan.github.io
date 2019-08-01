@@ -44,8 +44,8 @@
   		// render to this SVG element
 	
     tree(d3.layout.newick_parser(x))
-    	var height = 800
-        var width = 800
+    	var height = 800;
+        var width = 800;
 
         .svg(d3.select("#tree_display"))
         .options({
@@ -61,8 +61,8 @@
           // turn off d3 animations
         
         .size([height, width])
-        .node_circle_size(0); // do not show "circles" at internal nodes
-    });
+        .node_circle_size(0) // do not show "circles" at internal nodes
+	    });
 
     // for syntax highlighting
     //hljs.initHighlightingOnLoad();
