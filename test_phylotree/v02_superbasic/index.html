@@ -30,17 +30,20 @@
   <label for="phylotree">Input your tree in Newick format:</label>
   <input type=text id="texttree" value="(phylogeny,(in,(newick,format)));">
   <button onclick="myFunction()">Submit tree</button>
-  <h3>Testing</h3>
+  <h3>Testing2</h3>
   <script type="text/javascript">
   	function myFunction() {
   		var x = document.getElementById("texttree").value;
  		}
+	var tree = d3.layout.phylotree()
+  		// create a tree layout object
+  		.svg(d3.select("#tree_display"));
+  		// render to this SVG element
 	
-    d3.text(x, function(error, newick) {
-      var height = 800,
+    tree(d3.layout.newick_parser(x))
+    	var height = 800,
         width = 800,
 
-        tree = d3.layout.phylotree()
         .svg(d3.select("#tree_display"))
         .options({
           'left-right-spacing': 'fit-to-size',
@@ -53,7 +56,7 @@
           // turn off the menu on internal nodes
           'transitions': false
           // turn off d3 animations
-        })
+        
         .size([height, width])
         .node_circle_size(0); // do not show "circles" at internal nodes
 
