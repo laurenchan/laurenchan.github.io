@@ -27,8 +27,10 @@
 
 <body>
   <svg id="tree_display"></svg>
+  <label for="phylotree">input your tree:</label>
+  <input type=text id="phylotree" name="tree">
   <script>
-    d3.text("./yokoyama.nwk", function(error, newick) {
+    d3.text(phylotree, function(error, newick) {
       var height = 800,
         width = 800,
 
