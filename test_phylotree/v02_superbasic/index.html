@@ -30,13 +30,11 @@
   <label for="phylotree">Input your tree in Newick format:</label>
   <input type=text id="texttree" value="(phylogeny,(in,(newick,format)));">
   <button onclick="myFunction()">Submit tree</button>
-  <p id="clickbutton"></p>
   <h3>Testing</h3>
   <script type="text/javascript">
   	function myFunction() {
   		var x = document.getElementById("texttree").value;
-  		//document.getElementById("clickbutton").innerHTML = x;
-		}
+ 		}
 	
     d3.text(x, function(error, newick) {
       var height = 800,
