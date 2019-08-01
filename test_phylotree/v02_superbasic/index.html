@@ -27,10 +27,16 @@
 
 <body>
   <svg id="tree_display"></svg>
-  <label for="phylotree">input your tree:</label>
-  <input type=text id="phylotree" name="tree">
+  <label for="phylotree">Input your tree in Newick format:</label>
+  <input type=text id="texttree" value="(phylogeny,(in,(newick,format)));">
+  <button onclick="myFunction()">Submit tree</button>
+  <p id="clickbutton"></p>
   <script>
-    d3.text(phylotree, function(error, newick) {
+  	function myFunction() {
+  		var x = document.getElementById("texttree").value;
+  		document.getElementById("clickbutton").innerHTML = x;
+		}
+    d3.text(texttree, function(error, newick) {
       var height = 800,
         width = 800,
 
