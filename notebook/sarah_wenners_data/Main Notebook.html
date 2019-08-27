@@ -23,7 +23,9 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.markdown-cell code{background-color: "red";}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      
+<!-- 
+      <div id="nav"><div>Previous: <a href='Associated files.html'>Associated files</a>, Up: <a href='index.html'>Index</a></div></div>
+ -->
       <div id="titlearea">
         <h2>Main Notebook</h2>
       </div>
@@ -115,8 +117,59 @@
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_comment">#cp $out_dir/'populations.log' './test_log_files/M'$M'_populations.log';</span>
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">done</span><span class="ace_punctuation ace_operator">;</span>
 </div></div></div></pre>
+</div><div class="cell markdown-cell"><h2>August 24thish 2019</h2>
+<p>Stacked with M=3 and N=5 using <code>ustacks</code></p>
+<pre><div class="ace-tomorrow"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">#!/bin/bash</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_variable">clean_dir=</span><span class="ace_string">"../PHCO_clone_filtered/"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_variable">filename=</span><span class="ace_string">"../PHCO_names/all_Phry_names.txt"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_variable">all_lines=</span><span class="ace_keyword ace_operator">`</span><span class="ace_identifier">cat</span> <span class="ace_variable">$filename</span><span class="ace_keyword ace_operator">`</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_variable">counter=</span><span class="ace_constant ace_numeric">1</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">for</span> <span class="ace_identifier">line</span> <span class="ace_keyword">in</span> <span class="ace_variable">$all_lines</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">do</span> 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_variable">sample=$line</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_variable">sample_index=$counter</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_variable">fq1_file=$clean_dir$sample</span><span class="ace_string ace_start">'</span><span class="ace_string">.1.fq.gz</span><span class="ace_string ace_end">'</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_variable">log_file=$sample</span><span class="ace_string ace_start">'</span><span class="ace_string">.ustacks.oe</span><span class="ace_string ace_end">'</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_support ace_function ace_builtin">echo</span> <span class="ace_variable">$fq1_file</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">ustacks</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">t</span> <span class="ace_identifier">gzfastq</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">f</span> <span class="ace_variable">$fq1_file</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> . <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">i</span> <span class="ace_variable">$sample_index</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">m</span> <span class="ace_constant ace_numeric">3</span> <span class="ace_keyword ace_operator">--</span><span class="ace_identifier">name</span> <span class="ace_variable">$sample</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">M</span> <span class="ace_constant ace_numeric">3</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">N</span> <span class="ace_constant ace_numeric">5</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">p</span> <span class="ace_constant ace_numeric">20</span> <span class="ace_keyword ace_operator">&amp;&gt;</span> <span class="ace_variable">$log_file</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_paren ace_lparen">((</span><span class="ace_identifier">counter</span><span class="ace_keyword ace_operator">++</span><span class="ace_paren ace_rparen">))</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">done</span><span class="ace_punctuation ace_operator">;</span>
+</div></div></div></pre>
+<p>Ran <code>pullcoverage.sh</code></p>
+<pre><div class="ace-tomorrow"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_variable">all_logs=</span><span class="ace_keyword ace_operator">`</span><span class="ace_identifier">ls</span> <span class="ace_keyword ace_operator">*</span>.<span class="ace_identifier">oe</span><span class="ace_keyword ace_operator">`</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">for</span> <span class="ace_identifier">line</span> <span class="ace_keyword">in</span> <span class="ace_variable">$all_logs</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">do</span> 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_support ace_function ace_builtin">echo</span> <span class="ace_variable">$line</span> <span class="ace_keyword ace_operator">`</span><span class="ace_identifier">grep</span> <span class="ace_string ace_start">'</span><span class="ace_string">Final</span><span class="ace_string ace_end">'</span> <span class="ace_variable">$line</span><span class="ace_keyword ace_operator">`</span> <span class="ace_keyword ace_operator">&gt;&gt;</span> <span class="ace_identifier">recordlogs</span>.<span class="ace_identifier">txt</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">done</span><span class="ace_punctuation ace_operator">;</span>
+</div></div></div></pre>
+</div><div class="cell markdown-cell"><h2>August 27th 2019</h2>
+<p>cstacks on for from <code>populations.catalog.tsv</code></p>
+<pre><div class="ace-tomorrow"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">cstacks</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">P</span> . <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">M</span> ..<span class="ace_keyword ace_operator">/</span><span class="ace_identifier">PHCO_names</span><span class="ace_keyword ace_operator">/</span><span class="ace_identifier">popmap</span>.<span class="ace_identifier">catalog</span>.<span class="ace_identifier">tsv</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">n</span> <span class="ace_constant ace_numeric">3</span> <span class="ace_keyword ace_operator">&amp;&gt;</span> <span class="ace_identifier">cstacks</span>.<span class="ace_identifier">oe</span>
+</div></div></div></pre>
+<p><code>populations.catalog.tsv</code> is on <a href="https://github.com/laurenchan/notebook/tree/master/sarah_wenners_data/">https://github.com/laurenchan/notebook/tree/master/sarah_wenners_data/</a></p>
+<p>sstacks using script <code>sstacks.sh</code></p>
+<pre><div class="ace-tomorrow"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">#!/bin/bash</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_variable">filename=</span><span class="ace_string">"../PHCO_names/RAAU86_names.txt"</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_variable">all_lines=</span><span class="ace_keyword ace_operator">`</span><span class="ace_identifier">cat</span> <span class="ace_variable">$filename</span><span class="ace_keyword ace_operator">`</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">for</span> <span class="ace_identifier">line</span> <span class="ace_keyword">in</span> <span class="ace_variable">$all_lines</span><span class="ace_punctuation ace_operator">;</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">do</span> 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_variable">sample=$line</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_variable">log_file=$sample</span>.<span class="ace_identifier">sstacks</span>.<span class="ace_identifier">oe</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">sstacks</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">c</span> . <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">s</span> .<span class="ace_keyword ace_operator">/</span><span class="ace_variable">$sample</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">o</span> . <span class="ace_keyword ace_operator">&amp;&gt;</span> .<span class="ace_keyword ace_operator">/</span><span class="ace_variable">$log_file</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">done</span><span class="ace_punctuation ace_operator">;</span>
+</div></div></div></pre>
 </div><div class="cell markdown-cell"></div></div>
-      <script></script>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 37) window.location.href = 'Associated files.html';
+}</script>
     </body>
     </html>
   
