@@ -1,3 +1,3 @@
 ---
-permalink: /hewlett.html
+permalink: /index.html
 ---
