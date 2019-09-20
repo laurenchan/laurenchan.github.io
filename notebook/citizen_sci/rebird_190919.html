@@ -377,7 +377,10 @@ summary {
 <p>Load libraries</p>
 <pre class="r"><code>library(rebird)</code></pre>
 <p>Store keys and loc in variables to make it a little easier to call them.</p>
+<!-- 
 <pre class="r"><code>mykey &lt;- &quot;96h4mi8jusor&quot;
+ -->
+<pre class="r"><code>mykey &lt;- &quot;YOURKEY&quot;
 fernhill &lt;- &quot;L163529&quot;</code></pre>
 <p>The following code will get data for a particular date from Fernhill. The <code>fieldSet=&quot;full&quot;</code> is necessary to get all 27 columns of data. Otherwise, only get 12. Binding of tables is clunky.</p>
 <pre class="r"><code>oct1 &lt;- ebirdhistorical(loc=fernhill, date=&quot;2016-10-01&quot;, key=mykey, fieldSet = &quot;full&quot;)
