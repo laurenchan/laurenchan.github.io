@@ -85,7 +85,7 @@ a:hover{
 /***** NAVBAR ******/
 #navbar {
   overflow: hidden;
-  width: 848.8px;
+  width: 850px;
   font-weight: 500;
   background-color: #808B96;
 }
@@ -95,7 +95,7 @@ a:hover{
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 30px;
+  padding: 12px 29px;
   text-decoration: none;
   font-size: 17px;
 }
