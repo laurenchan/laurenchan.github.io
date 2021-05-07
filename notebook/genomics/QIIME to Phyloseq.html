@@ -23,13 +23,33 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.markdown-cell code{background-color: "red";}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Previous: <a href='QIIME to Phyloseq.html'>QIIME to Phyloseq</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div><a href='../index.html'>Back</a></div></div>
       <div id="titlearea">
-        <h2>ShinyApp</h2>
+        <h2>QIIME to Phyloseq</h2>
       </div>
-      <div id="contentarea"></div>
+      <div id="contentarea"><div class="cell text-cell">Based on tutorial QIIME2_to_Phyloseq.pdf</div><div class="cell markdown-cell"><h1>In QIIME2:</h1>
+<h2>Export OTU Table</h2>
+<p><code>qiime tools export --input-path table.qza --output-path phyloseq</code></p>
+<p><strong>Above exports as feature-table.biom. Need to convert to .tsv</strong><br>
+<code>biom convert -i phyloseq/feature-table.biom -o phyloseq/otu_table.txt --to-tsv</code></p>
+<p>Open <code>otu_table.txt</code> and change "#OTUID" to "OTUID"</p>
+<h2>Export Taxonomy table</h2>
+<p><code>qiime tools export --input-path taxonomy.qza --output-path phyloseq</code></p>
+<p>Open <code>taxonomy.tsv</code> and change "Feature ID" to "OTUID"</p>
+<h2>Export Tree</h2>
+<p><code>qiime tools export --input-path unrooted-tree.qza --output-path phyloseq</code></p>
+</div><div class="cell markdown-cell"><h1>In R</h1>
+<h2>Load libraries</h2>
+<p><code>library("ggplot2")</code><br>
+<code>library("phyloseq")</code><br>
+<code>library("ape")</code></p>
+<h2>Import OTU table</h2>
+<p><code>otu_table=as.matrix(read.table("otu_table.txt", sep="\t", row.names=1, header=T))</code></p>
+<h2>Import metadata</h2>
+</div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 37) window.location.href = 'QIIME to Phyloseq.html';
+if (e.keyCode === 39) window.location.href = 'README.md.html';
+if (e.keyCode === 37) window.location.href = 'MiSeq classification.html';
 }</script>
     </body>
     </html>
