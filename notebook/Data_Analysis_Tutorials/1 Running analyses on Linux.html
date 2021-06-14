@@ -23,7 +23,7 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='2 QIIME2 on the Linux.html'>2 QIIME2 on the Linux</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='2 QIIME2 on the Linux.html'>2 QIIME2 on the Linux</a>, Up: <a href='index.html'>Index</a></div></div>      
       <div id="titlearea">
         <h2>1 Running analyses on Linux</h2>
       </div>
@@ -40,9 +40,9 @@ Use <code>ctrl-A D</code> to back out of that session keeping processes running.
 </div><div class="cell markdown-cell"><h2>Queueing Jobs</h2>
 <p>The other option is to submit <em>jobs</em> to the queueing system on Linux. As I mentioned, this is super helpful when you have a number of jobs to submit and you don't want to have to repeatedly check if there are processors free to run those jobs.</p>
 <p>The Linux has 24 different processors that can be used independently. You can also submit multithreaded jobs that use multiple processors. To use the queueing system you will submit a <code>q-file</code> that has the commands you'd like to run. These will sit in line and automatically start when there are processors free. Unfortunately, you don't get a msg back then they are done, but you CAN check the queue to see which have yet to run.</p>
-</div><div class="cell markdown-cell"><h3>Basics of the queuing system</h3>
+</div><div class="cell markdown-cell"><h3>Setting up a q-file</h3>
 <p>Each job will need a <code>q-file</code>. This should have a short name and end in a <code>.q</code> Below is an example. The first line must be <code>#!/bin/bash</code>. The next set of lines issue commands to the queuing system and all start with <code>#PBS</code>. In this case, the <code>#PBS -N str_1a</code> gives the name that we'll see in the list of jobs. Keep the names on the short side, but unique so you can keep track. No spaces, of course.</p>
-<p>Then come the commands. For our system you need to use <code>cd $PBS_O_WORKDIR</code> to start in the directory that your q-file lives in.</p>
+<p>Then comes the commands. For our system you need to use <code>cd $PBS_O_WORKDIR</code> to start in the directory that your q-file lives in.</p>
 <p>Following is the command for the analysis you want to execute. This is a single processor command and entered as if I were directly entering in the shell. Note though that I also include <code>&gt; ...*.slog</code> to log the screen output to a newfile.</p>
 </div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">#!/bin/bash</span>
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment">#PBS -N  str_1a</span>
@@ -61,10 +61,22 @@ Use <code>ctrl-A D</code> to back out of that session keeping processes running.
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_support ace_function ace_builtin">cd</span> <span class="ace_variable">$PBS_O_WORKDIR</span>
 </div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">beast</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">beagle</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">beagle_CPU</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">threads</span> <span class="ace_constant ace_numeric">6</span> <span class="ace_keyword ace_operator">-</span><span class="ace_identifier">overwrite</span> <span class="ace_identifier">soc_beast2</span>.<span class="ace_identifier">xml</span>
 </div></div></div></div><div class="cell markdown-cell"><p>The last thing is that you may need to include a export PATH commandline depending on the analysis you want to do. Check with Lauren about that too.</p>
+</div><div class="cell markdown-cell"><h3>Submitting your qfile</h3>
+<p>To submit your job, use the <code>qsub</code> command.</p>
+<p><code>qsub filename.q</code></p>
+</div><div class="cell markdown-cell"><h3>Check job status</h3>
+<p>Use the qstat command to check on the status of your job.</p>
+<p><code>qstat</code> on its own will list the jobs and whether they are:</p>
+<ul>
+<li><strong><code>R</code></strong> running,</li>
+<li><strong><code>Q</code></strong> Queued, or</li>
+<li><strong><code>C</code></strong> Completed.</li>
+</ul>
+<p>Runs that have completed a while ago will not be in the queue.</p>
+</div><div class="cell markdown-cell"><h3>OE files</h3>
+<p>You can just for errors/warnings by looking at the files the end with jobname.o#### and jobname.e####</p>
 </div><div class="cell markdown-cell"></div></div>
-      <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = '2 QIIME2 on the Linux.html';
-}</script>
+      <script></script>
     </body>
     </html>
   
