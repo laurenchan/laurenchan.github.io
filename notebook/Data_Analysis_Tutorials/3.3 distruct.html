@@ -23,30 +23,19 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='3.3 distruct.html'>3.3 distruct</a>, Previous: <a href='3.1 Structure Batch Maker.html'>3.1 Structure Batch Maker</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='4 Parentage.html'>4 Parentage</a>, Previous: <a href='3.2 CLUMPP.html'>3.2 CLUMPP</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>3.2 CLUMPP</h2>
+        <h2>3.3 distruct</h2>
       </div>
-      <div id="contentarea"><div class="cell text-cell">To plot the Structure data, you’ll need to first process the data for each K in CLUMPP and then use <i>distruct</i>&nbsp;to plot it.<div><br></div><div>CLUMPP uses the paramfile when it runs. Open this file in BBEdit/Notepad++/etc. You’ll need to run CLUMPP twice for each K - Once for individual data and once for population data. Open and edit as necessary.&nbsp;</div></div><div class="cell markdown-cell"><p>Example with K=2<br>
-Set<br>
-<code>INDFILE K2.indfile</code><br>
-<code>POPFILE K2.popfile</code><br>
-These are files that should exist in the folder you're running CLUMPP from.</p>
-<p>Set <code>K 2</code>, <code>R 10</code></p>
-<p>You'll need to experiment with M depending on dataset.</p>
-<p>Then, you'll edit the paramfile further to run for individual data. Set<br>
-<code>DATATYPE 0</code><br>
-<code>OUTFILE K2ind.outfile</code> or something that has K and ind<br>
-Set C to the number of individuals in your dataset.</p>
-<p>Run by simply executing <code>CLUMPP</code> in UNIX in the folder that all these files reside in (output from structure harvester).</p>
-<p>Next, edit paramfile to run for population data.<br>
-Change <code>Datatype</code> to 1, and Change the name of the outfile to <code>K2pop.outfile</code> or something approriate. Change C to the number of pops in your dataset (not K, but how many sites for example).</p>
-<p>Run again by executing <code>CLUMPP</code>.</p>
-<p>Repeat for different K's as you see necessary.</p>
+      <div id="contentarea"><div class="cell markdown-cell"><p>After running CLUMPP, you will need to run distruct for each K. You’ll need three files in addition to the CLUMPP outfiles. You’ll need <code>drawparams</code>, <code>namefile</code> and <code>permfile</code>.</p>
+<p>Edit namefile with numbers for your pops (whatever you used in Structure) and their names (avoid spaces). Leave permfile as is, unless you do K greater than 10 or want to just try different colors.</p>
+<p><code>drawparams</code> is the file you'll really need to edit. For each time your run distruct, edit <code>INFILE_POPQ</code>, <code>INFILE_INDIVQ</code>. These are the output files from CLUMPP. Also edit the OUTFILE. eg <code>PSRE-K2.ps</code> It is a postscript file so .ps is the correct file suffix. Edit K, NUMPOPS and NUMINDS to fit your dataset/Krun.</p>
+<p>All the rest of the options are drawing options that you'll need to mess with to get it to look nice and pretty, or even just readable. Important for your dataset will be INDIWIDTH - you'll want to make this small. Check documentation for other settings.</p>
+<p>Like CLUMPP this should be run from the folder with the Structure Harvetster output. I think <code>distruct</code> on Linux will do the trick to execute it.</p>
 </div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = '3.3 distruct.html';
-if (e.keyCode === 37) window.location.href = '3.1 Structure Batch Maker.html';
+if (e.keyCode === 39) window.location.href = '4 Parentage.html';
+if (e.keyCode === 37) window.location.href = '3.2 CLUMPP.html';
 }</script>
     </body>
     </html>
