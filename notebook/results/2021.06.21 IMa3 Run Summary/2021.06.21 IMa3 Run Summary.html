@@ -1,0 +1,149 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:100%;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 12px;}.latex-cell {font-size: 12px;}</style>
+    </head>
+    <body>
+      
+      <div id="titlearea">
+        <h2>2021.06.21 IMa3 Run Summary</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><h1>IMa3 analyses for Sceloporus</h1>
+<p>These have been running over the last few days. Noticed that the Sceloporus runs were maxing out q because of the mainland so today tried running without mainland. It severely changes the estimates of the population size.</p>
+<p>Overwrote the last run (scelop 11)</p>
+</div><div class="cell markdown-cell"><h2>One run including all samples:</h2>
+<p><code>mpirun -np 10 IMa3 -i Scelop-merged-outgroups.u -o Scelop-IMa3_11.out -b50000 -L100000 -j8 -t100 -q1000 -hn 20 -ha0.95 -hb0.5 -p237 -r2</code></p>
+<h3>Header looked like:</h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>#IMa3 Input CI Sceloporus with mainland no outgroups
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>5
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>Mainland  SanMiguel  SantaCruz1  SantaCruz2  SantaRosa
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>(0,(1,(2,(3,4):5):6):7):8
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>1 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>locus_1  29   10   7   5   8  2053  H 0.25   0.00002  
+</div></div></div></pre>
+</div><div class="cell markdown-cell"><h3>ESS output:</h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>Autocorrelations and Effective Sample Size Estimates
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>----------------------------------------------------
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>   # Steps Between Values and Autocorrelation Estimates 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Steps    Log[P]  t0  t1  t2  t3  tmrca0
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1    0.9907  0.9842  0.9939  0.9937  0.9934  0.9627
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    10   0.7767  0.7047  0.7523  0.7384  0.7528  0.6201
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    50   0.3666  0.2424  0.2948  0.2684  0.2958  0.1663
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    100  0.2072  0.1231  0.1680  0.1404  0.1773  0.0835
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    500  0.1064  0.0576  0.0951  0.0923  0.1087  0.0268
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1000     0.1056  0.0471  0.0864  0.0867  0.1155  0.0161
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    5000     0.0741  0.0272  0.0383  0.0348  0.0808 -0.0059
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    10000    0.0319  0.0159  0.0417  0.0234  0.0694 -0.0100
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    5.0e4    0.0313  0.0153  0.0424  0.0238  0.0539 -0.0097
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1.0e5    0.0297  0.0153  0.0437  0.0241  0.0486 -0.0097
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    5.0e5    0.0222  0.0178  0.0411  0.0229  0.0518 -0.0087
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1.0e6    0.0250  0.0158  0.0425  0.0242  0.0543 -0.0098
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    ESS 1774    26077   &lt; 119   10927   &lt; 96    108529
+</div></div></div></pre>
+</div><div class="cell markdown-cell"><h3>Demographic output</h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Value    t0  t1  t2  t3  q0  q1  q2  q3  q4  q5  q6  q7  q8
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Minbin  2500        57500       97500       442500      256250      6250        6250        6250        6250        6250        6250        6250        6250     
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Maxbin  407500      957500      1112500     4957500     12493750    12493750    12493750    12493750    12493750    12493750    12493750    12493750    12493750 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HiPt    97500       367500      462500      3217500     12493750    56250       318750      131250      581250      6250        331250      143750      1118750  
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HiSmth  97500       357500      462500      3227500     12493750    56250       318750      131250      581250      6250        331250      143750      1118750  
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Mean    104509      349413      483602      3090221     11293687    95717       559536      1035817     3097531     192066      5815924     1505743     3415773  
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    95%Lo   42500       147500      267500      1572500     9056250     18750       156250      56250       281250      6250        243750      56250       443750   
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    95%Hi   182500      572500      722500      3892500     12456250    281250      1631250     8606250     10993750    793750      12143750    8818750     10718750 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HPD95Lo 37500       132500      257500      1732500   ? 9481250     18750       81250       18750       93750       0.0     0.0#    0.0     131250     
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HPD95Hi 187500      562500      712500      4047500   ? 12493750    256250      1293750     5968750     9731250     456250      11781250 #  6581250     9506250    
+</div></div></div></pre>
+</div><div class="cell markdown-cell"><h3><a href="http://IMfig.py">IMfig.py</a></h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>IMfig program Copyright 2009-2018  Jody Hey
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>command line string: -i Scelop-IMa3_11.out -o ScelopIMa11 -f Helvetica -a -k -m x -p 10 -x 0.5 -v
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>Figure ?. A representation of an estimated Isolation with Migration model generated by IMa3 and the IMfig program (Hey et al., 2018). The phylogeny is depicted as a series of boxes organized hierarchically, with ancestor boxes positioned in between the corresponding descendants, and the width of boxes proportional to estimated Ne. 95% confidence intervals for each Ne value are shown as dashed lines to the right of the left side of the corresponding population box.  Gray arrows to the 95% Ne intervals are also shown extending to the left and right of the right boundary of each population box.  Splitting times are depicted as solid horizontal lines, with text values on the left. Confidence intervals for splitting times are shown as vertical gray arrows on the left, and parallel dashed lines. Ancestral population numbers are shown in ancestral boxes. 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>Hey J, Chung Y, Sethuraman A, Lachance J, Tishkoff SA, Soudsa VC, Wang Y. 2018. Phylogeny Estimation by Integration over Isolation with Migration Models. Mol Biol Evol in press.
+</div></div></div></pre>
+<p><img src="resources/E90B06BE2B12AA5B81B9297A16504723.jpg" alt="ScelopIMa11.jpg" width="800" height="600"></p>
+</div><div class="cell markdown-cell"><h2>One run OMITTING mainland samples</h2>
+<p><code>mpirun -np 10 IMa3 -i Scelop_islandsOnly_IMaIN.u -o Scelop_islandsOnly_03.out -b50000 -L100000 -j8 -t50 -q150 -hn 20 -ha0.95 -hb0.5 -p237 -r2</code></p>
+<h3>Header</h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>#IMa3 Input CI Sceloporus. No mainland
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>4
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>SanMiguel  SantaCruz1  SantaCruz2  SantaRosa
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>(0,(1,(2,3):4):5):6
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>1 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>locus_1  10   7   5   8  2053  H 0.25   0.00002  
+</div></div></div></pre>
+</div><div class="cell markdown-cell"><h3>ESS values</h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>Autocorrelations and Effective Sample Size Estimates
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>----------------------------------------------------
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>   # Steps Between Values and Autocorrelation Estimates 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Steps    Log[P]  t0  t1  t2  tmrca0
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1    0.9747  0.9648  0.9438  0.9492  0.9286
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    10   0.7134  0.6398  0.6098  0.5945  0.4966
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    50   0.2835  0.1928  0.1736  0.1763  0.0769
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    100  0.1453  0.0861  0.0825  0.0676  0.0176
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    500  0.0789  0.0340  0.0196  0.0174  0.0155
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1000     0.0425  0.0186 -0.0100 -0.0209 -0.0196
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    5000     0.0174  0.0164 -0.0016  0.0007  0.0097
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    10000    0.0014  0.0142  0.0080 -0.0022  0.0057
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    5.0e4    0.0004  0.0145  0.0086 -0.0022  0.0053
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1.0e5    0.0003  0.0147  0.0090 -0.0029  0.0053
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    5.0e5   -0.0015  0.0163  0.0102 -0.0049  0.0059
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    1.0e6    0.0037  0.0170  0.0131 -0.0060  0.0039
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    ESS 25263   78677   109090  118258  247451
+</div></div></div></pre>
+</div><div class="cell markdown-cell"><h3>Some output</h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>HISTOGRAM GROUP 3: MARGINAL DISTRIBUTION VALUES IN DEMOGRAPHIC UNITS
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>--------------------------------------------------------------------
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Calculations use DEFAULT generation time:  1 year
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Calculations use mutation rates (per year) from data file
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>      - note, curve height has not been adjusted with the scale change. Integration does not equal 1 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>      - # of loci with mutation rates in input file : 1 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Rescaled Population Size Parameter Units: individuals 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Rescaled Time Parameter Units: years
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Generation time in years specified on command line at runtime: 1.000000 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Geometric mean of mutation rates per year (based on rates specified in input file): 2.000000e-05
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Geometric mean of ML estimates of relevant mutation rate scalars calculated from scalar histograms: 1.000000e+00
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span> Summaries
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Value    t0  t1  t2  q0  q1  q2  q3  q4  q5  q6
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Minbin  1250        46250       93750       937.5       937.5       937.5       937.5       937.5       937.5       937.5    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Maxbin  461250      998750      1438750     1874063     1874063     1874063     1874063     1874063     1874063     1874063  
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HiPt    98750       363750      578750      55313       284063      130313      670313      937.5       165938      937.5    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HiSmth  98750       363750      566250      57188       284063      130313      670313      937.5       165938      937.5    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    Mean    112952      371367      582634      104925      469712      383255      991489      147469      802957      636876   
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    95%Lo   51250       158750      331250      19688       141562      57188       248438      2813        36562       19688    
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    95%Hi   198750      606250      851250      300938      1257188     1493438     1815938     833438      1806563     1757813  
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HPD95Lo 41250       146250      328750      8438        90938       21563       284063      0.0     0.0#    0.0# 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    HPD95Hi 188750      591250      846250      248438      1062188     1225313     1845938     544688      1737188  #  1647188  # 
+</div></div></div></pre>
+</div><div class="cell markdown-cell"><h3><a href="http://IMfig.py">IMfig.py</a></h3>
+<pre><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>IMfig program Copyright 2009-2018  Jody Hey
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>command line string: -i Scelop_islandsOnly_03.out -o Scelop_islandsOnly_03fig -f Helvetica -a -k -m x -p 10 -x 0.5 -v
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>Figure ?. A representation of an estimated Isolation with Migration model generated by IMa3 and the IMfig program (Hey et al., 2018). The phylogeny is depicted as a series of boxes organized hierarchically, with ancestor boxes positioned in between the corresponding descendants, and the width of boxes proportional to estimated Ne. 95% confidence intervals for each Ne value are shown as dashed lines to the right of the left side of the corresponding population box.  Gray arrows to the 95% Ne intervals are also shown extending to the left and right of the right boundary of each population box.  Splitting times are depicted as solid horizontal lines, with text values on the left. Confidence intervals for splitting times are shown as vertical gray arrows on the left, and parallel dashed lines. Ancestral population numbers are shown in ancestral boxes. 
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>Hey J, Chung Y, Sethuraman A, Lachance J, Tishkoff SA, Soudsa VC, Wang Y. 2018. Phylogeny Estimation by Integration over Isolation with Migration Models. Mol Biol Evol in press.
+</div></div></div></pre>
+<p><img src="resources/9BE1FA3116E2ACEB13843F01291C20EA.jpg" alt="Scelop_islandsOnly_03fig.jpg" width="800" height="600"></p>
+</div><div class="cell markdown-cell"></div></div>
+      <script></script>
+    </body>
+    </html>
+  
