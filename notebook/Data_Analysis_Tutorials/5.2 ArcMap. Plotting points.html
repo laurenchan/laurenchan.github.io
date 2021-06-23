@@ -23,17 +23,54 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='5 Some ArcMap Basics.html'>5 Some ArcMap Basics</a>, Previous: <a href='3.3 distruct.html'>3.3 distruct</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Next: <a href='5.3 ArcMap. Formatting Maps.html'>5.3 ArcMap. Formatting Maps</a>, Previous: <a href='5.1 ArcMap. Formatting point localities.html'>5.1 ArcMap. Formatting point localities</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>4 Parentage</h2>
+        <h2>5.2 ArcMap. Plotting points</h2>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><p>Parentage is an old program that uses Bayesian methods to assign individisuals to sibgroups. After running Parentage, you’ll need to process the results in R. <code>ParentageProcess2019.r</code> is a set of R functions that will let you visualize the data.</p>
-<p>To load the R functions, you will use the <code>source</code> function in R. In R, use <code>setwd()</code> to change your directory to the place where your parentage output files are. You can source the file from anywhere by using the path to the file from wherever you are (or use the absolute path. You'll load by entering (in R) <code>source("path/ParentageProcess2019.r")</code></p>
-<p>Once the file is loaded, you can plot different things using the functions and the filename root. If, for instance, your filenames are "site1.out", "site1.out.end", "site1.out.females" then the filename root is "site1". <code>plot975("site1")</code> is the function to make the posterior probability plots of paternity/maternity. Replace "site1" with whatever your filename is.</p>
+      <div id="contentarea"><div class="cell markdown-cell"><p>This is a very quick tutorial to walk you through plotting points on a map&nbsp;in ArcMap. The second tutorial in this series will show you how to make it pretty. There are also many fancier things you can do and I encourage you to try them out.</p>
+<ol>
+<li>
+<p>To start, you need a file of point localities. This should be a simple *.csv file (comma-delimited) with a header row and then data, one line per locality. See previous tutorial here.</p>
+</li>
+<li>
+<p>Open ArcMap, part of the ArcGIS package. You will want to create a blank map so if a window asking you to choose a template pops up, simply click on "cancel."</p>
+</li>
+<li>
+<p>The first thing to do is to pick a basemap. You may want a topo map, or a simple line map that include state or county boundaries. Perhaps you want satellite images as the background. We will use ArcMap's default basemaps. In the menu bar click on the triangle to the right of +&nbsp;and select "Add basemap" (see below).</p>
+</li>
+</ol>
+<p><img src="resources/971B971793860795C85D692AC71773AC.png" alt="Add_Basemap-1024x576.png" width="1024" height="576"></p>
+<ol start="4">
+<li>
+<p>A pop-up window will give you a bunch of different options. Choose one, keeping in mind that simple is often best.</p>
+</li>
+<li>
+<p>The next step is to add your data from the "coordinates file" you created in step 1. Click on the + again and select "Add data". Find the *.csv file you created in step 1.</p>
+</li>
+<li>
+<p>This file will appear in the Table of contents. In the image below, see the file highlighted in blue. This is the coordinates file I imported in my example. If your file doesn't show, double-check that you have selected the second icon from the left under Table of Contents (List by Source).</p>
+</li>
+</ol>
+<p><img src="resources/B8AE27F7C675371B261567C117B32CA1.png" alt="csv_file.png" width="515" height="549"></p>
+<ol start="7">
+<li>To turn this coordinate file into points on the map, you will need to "Display XY Data" by right clicking on the file (the blue selected above), and choosing "Display XY Data". The next little bit can be tricky depending on the datum that your coordinates file was written in. If you know what coordinate system was used to collect your data points, it can help. First things first, check that your longitude is selected as the x-field and that latitude is selected as the y-field.</li>
+</ol>
+<p><img src="resources/A6802BEB56856E45C7CF096822A65235.png" alt="display_xy.png" width="403" height="604"></p>
+<ol start="8">
+<li>
+<p>The next thing is to&nbsp;edit the coordinate system. Click on Edit... In the pop up window, collapse the windows down so that you see "Geographic Coordinate Systems" and "Projected Coordinate Systems". From here, expand&nbsp;Geographic Coordinate Systems &gt; World and select "WGS1984". Click OK in this window, and OK in the next. You make get a message about projections and object-ids. Just click OK.</p>
+</li>
+<li>
+<p>Now, the moment of truth. You should see points on a map. If you don't, find the "layer" that was created when you Displayed XY. In your Table of Contents it will look like the bit highlighted in blue below. You can also click on the leftmost icon and see if it shows up there. If it does, right click and select "zoom to layer". Now, you should see your points on a map. Are they in the right places or were they projected incorrectly? If they are not, you will likely need to pick a different coordinate system. Go back to steps 7 and 8. Instead of choosing WGS 1984, try Geographic Coordinate Systems &gt; North America &gt; NAD1983 (or possibly NAD1927, if NAD1983 also projects incorrectly).</p>
+</li>
+</ol>
+<p><img src="resources/99EC53FCE831F0DD8F98CD755B15A008.png" alt="display_layer.png" width="315" height="409"></p>
+<p>Next: Making your map look pretty - adding information and detail&nbsp;for publication.</p>
+<p>Back to ArcMap tutorial&nbsp;overview.</p>
 </div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = '5 Some ArcMap Basics.html';
-if (e.keyCode === 37) window.location.href = '3.3 distruct.html';
+if (e.keyCode === 39) window.location.href = '5.3 ArcMap. Formatting Maps.html';
+if (e.keyCode === 37) window.location.href = '5.1 ArcMap. Formatting point localities.html';
 }</script>
     </body>
     </html>

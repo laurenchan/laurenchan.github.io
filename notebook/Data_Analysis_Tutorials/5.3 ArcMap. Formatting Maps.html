@@ -23,17 +23,21 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='5 Some ArcMap Basics.html'>5 Some ArcMap Basics</a>, Previous: <a href='3.3 distruct.html'>3.3 distruct</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Previous: <a href='5.2 ArcMap. Plotting points.html'>5.2 ArcMap. Plotting points</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>4 Parentage</h2>
+        <h2>5.3 ArcMap. Formatting Maps</h2>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><p>Parentage is an old program that uses Bayesian methods to assign individisuals to sibgroups. After running Parentage, you’ll need to process the results in R. <code>ParentageProcess2019.r</code> is a set of R functions that will let you visualize the data.</p>
-<p>To load the R functions, you will use the <code>source</code> function in R. In R, use <code>setwd()</code> to change your directory to the place where your parentage output files are. You can source the file from anywhere by using the path to the file from wherever you are (or use the absolute path. You'll load by entering (in R) <code>source("path/ParentageProcess2019.r")</code></p>
-<p>Once the file is loaded, you can plot different things using the functions and the filename root. If, for instance, your filenames are "site1.out", "site1.out.end", "site1.out.females" then the filename root is "site1". <code>plot975("site1")</code> is the function to make the posterior probability plots of paternity/maternity. Replace "site1" with whatever your filename is.</p>
+      <div id="contentarea"><div class="cell markdown-cell"><p>[Note: this is very very basic. I will add detail]</p>
+<p>Now that you have your point plotted correctly in geographic space, you can pretty-up your map. First, if you want to change your basemap, go ahead and do so using Add Basemap as you did before. If you do this, you may want to either turn off (uncheck) or delete (right-click &gt; remove) other basemap layers in the "List by Drawing Order" tab of the Table of Contents. This will keep your Table of Contents from getting too cluttered.</p>
+<p>Assuming you have a basemap you like, you can change the look of your map as follows:</p>
+<p>Change the symbol - click on the symbol for the layer, or right-click on the name of the point layer and select properties. You can change the symbol under "Symbology"<br>
+Add labels - if you want to add the "name" from your csv file as a label again select "properties" for the layer. Click on the labels tab and check "label features the same way". Under Label String, select the column header of the names you want to display. You can also change font etc. Click OK when you're done.<br>
+Layout format - Click on View menu &gt; Layout view. This gives you the "print" version. You can resize the portion of the map printed and zoom in and out using the menu buttons. This may take some trial and error. Remember the "undo" function.<br>
+Once you have the map cropped as you'd like, you can add scale bars, compass bearings, etc. under the "Insert" menu. There are tons of different options. Pick something neat and clean and put it somewhere on the map where 1) it will not obscure important data and 2) not clutter the image.<br>
+When you are happy with your graph, save as a pdf. Go to File &gt; Export map... and export as a pdf. Make sure you also save your ArcMap file in case you want to make more changes down the line. The pdf that's generated can be further edited in Adobe Illustrator if you need, and can also be inserted into a Word doc and then cropped if/as necessary.</p>
 </div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 39) window.location.href = '5 Some ArcMap Basics.html';
-if (e.keyCode === 37) window.location.href = '3.3 distruct.html';
+if (e.keyCode === 37) window.location.href = '5.2 ArcMap. Plotting points.html';
 }</script>
     </body>
     </html>
