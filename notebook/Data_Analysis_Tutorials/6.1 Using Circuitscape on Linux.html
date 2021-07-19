@@ -23,22 +23,32 @@
       <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
     </head>
     <body>
-      <div id="nav"><div>Next: <a href='6.1 Using Circuitscape on Linux.html'>6.1 Using Circuitscape on Linux</a>, Previous: <a href='5.3 ArcMap. Formatting Maps.html'>5.3 ArcMap. Formatting Maps</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="nav"><div>Previous: <a href='5.4 ArcMap. Copying layers to your machine.html'>5.4 ArcMap. Copying layers to your machine</a>, Up: <a href='index.html'>Index</a></div></div>
       <div id="titlearea">
-        <h2>5.4 ArcMap. Copying layers to your machine</h2>
+        <h2>6.1 Using Circuitscape on Linux</h2>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><p>To add data from an external drive to your own machine, you need to use part of the ArcGIS package called "ArcCatalog". Do NOT just drag and drop in the finder!</p>
-<h2>Step 1: Add your folder connections</h2>
-<p>In ArcCatalog, you will need to make sure that you have a path to the folder that you want to copy FROM and TO. To add connections, right click on Folder Connections and "Connect to Folder..."</p>
-</div><div class="cell markdown-cell"><p><img src="resources/D43555B917CABC6DFF839ABDE5151BC9.png" alt="Screenshot 2021-07-08 11.12.01.png" width="578" height="320"></p>
-</div><div class="cell markdown-cell"><h2>Step 2: Copy and Paste</h2>
-<p>Use copy and paste to transfer the file. It will take a while. You'll want to first go to your "FROM" directory and find the file. Right click and "COPY" the particular files and/or folders you want.</p>
-</div><div class="cell markdown-cell"><p><img src="resources/E6CCA24F6EE974C14D14B40460639CC2.png" alt="Screenshot 2021-07-08 11.13.28.png" width="579" height="492"></p>
-</div><div class="cell markdown-cell"><p>Then go to your "TO" directory and paste to add it to your directory.</p>
-</div><div class="cell markdown-cell"><p><img src="resources/8F7751CE7E5AEC46E0662E94AE508A30.png" alt="Screenshot 2021-07-08 11.14.04.png" width="576" height="345"></p>
-</div></div>
+      <div id="contentarea"><div class="cell markdown-cell"><p>To use Circuitscape on the Linux machine, we are going to use <code>Julia</code> which is computing language that is faster than the GUI (the GUI has also not been updated lately so this gives us some access to the more recent versions).</p>
+</div><div class="cell markdown-cell"><h2>Files you'll need</h2>
+<p>You will need to prepare your input files first. You'll need an *.ini file and two *.asc files. Download <a href="https://github.com/laurenchan/notebook/blob/f5fb6fcc1f27792f796e8a4ff3f4a7d8e7f70ad7/Tutorials_data_analysis/exampleCS.ini">this *.ini file</a> and change the parameters to what you need (more on that below). You'll also need and ASCII file of your pts (export Raster to Ascii) and of your resistance or cost layer. Remember that the ASCIIs/rasters need to have the exact same dimensions. You can check this for the rasters in Properties&gt;Source. You can alternatively look at the header (first few lines) of the ASCII in a text editor. (NOTE: If the ASCII isn't correct, you'll need to edit the rasters, not the ASCII.)</p>
+<p>Put the ini file and the two asciis in a folder for just that run. Within that folder, make a new folder called "output". Make new folders and copy the ASCIIs for new runs.</p>
+</div><div class="cell markdown-cell"><h2>INI file</h2>
+<p>The ini file holds all the info that Circuitscape will look to. For now, you will need to open it and change the path to the <code>habitat_file</code> and the path to the <code>point_file</code>. You'll need the path from wherever you're planning on running the program. I'm going to assume you'll be within the folder you created above so that you'll only need the filename.</p>
+</div><div class="cell markdown-cell"><h2>Running on the Linux</h2>
+<p>You will need to run all of this on the Linux machine. Login with Splashtop or with Terminal/SFTP.</p>
+<h3>Move files</h3>
+<p>Upload your folder with infiles to whichever folder you want to run the analysis in - should be within your own directory.</p>
+<h3>Run using Screen</h3>
+<p>The Circuitscape run will take time. Longer than you want to be connected. You will use <code>screen</code> to start a session that you can keep running when you log off. See instructions for <code>screen</code> in <a href="https://laurenchan.github.io/notebook/Data_Analysis_Tutorials/1%20Running%20analyses%20on%20Linux.html">Running analyses on Linux Tutorial</a></p>
+<p>Briefly, on the Linux, you'll open Terminal, navigate to your folder using <code>cd</code> and then start a screen session by typing <code>screen -S *your_runname*. For example</code>screen -S laurenCS1`</p>
+<h3>Use Julia to start your run</h3>
+<p>Check to make sure you're in your correct directory. Type <code>julia</code> to start the Julia environment. At the prompt type:</p>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_storage ace_modifier ace_variable ace_julia">using</span> Circuitscape <span class="ace_punctuation ace_definition ace_comment ace_julia">#</span><span class="ace_comment ace_line ace_number-sign ace_julia"> loads the package into your environment</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_support ace_function ace_julia">compute</span>(<span class="ace_punctuation ace_definition ace_string ace_begin ace_julia">"</span><span class="ace_string ace_quoted ace_double ace_julia">path/to/config/file.ini</span><span class="ace_punctuation ace_definition ace_string ace_end ace_julia">"</span>) <span class="ace_punctuation ace_definition ace_comment ace_julia">#</span><span class="ace_comment ace_line ace_number-sign ace_julia"> should just be the name</span>
+</div></div></div></div><div class="cell markdown-cell"><p>Your run should start and you'll start to see calculations and timings. If you get an error, you'll need to read the error message and troubleshoot. If you need to exit Julia because of an error type ctrl-A-D. That should take you back to the normal bash prompt within your screen session. Type <code>exit</code> to leave/end that screen session.</p>
+<p>If your run is running okay, use ctrl-A-D to exit the screen session and leave it running in the background. See the screen tutorial above on how to check back on your screen session.</p>
+</div><div class="cell markdown-cell"></div></div>
       <script>document.body.onkeyup = function(e) {
-if (e.keyCode === 37) window.location.href = '5.3 ArcMap. Formatting Maps.html';
+if (e.keyCode === 37) window.location.href = '5.4 ArcMap. Copying layers to your machine.html';
 }</script>
     </body>
     </html>
