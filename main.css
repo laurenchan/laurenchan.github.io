@@ -10,7 +10,7 @@ body{
 	margin: 5px auto;
     padding: 10px;
     max-width: 850px;
-	font-size: 16px;
+	font-size: 14px;
 	color: #666;
 /*	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 	font-family: 'Nunito', san-serif;
@@ -189,7 +189,7 @@ a:hover{
 /**** Font Styles ****/
 
 .pdf ul, li{
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 200px;
 	}
 
