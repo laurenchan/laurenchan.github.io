@@ -1,2 +1,0 @@
-# laurenchan.github.io
-Website
