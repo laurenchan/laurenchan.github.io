@@ -1,4 +1,4 @@
-baseURL = "https://laurenchan.github.io"
+baseURL = "https://laurenchan.github.io/"
 theme = "hugo-apero"
 languageCode = "en"
 title = "Lauren M. Chan"
