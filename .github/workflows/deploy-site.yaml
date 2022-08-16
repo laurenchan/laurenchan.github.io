@@ -9,28 +9,26 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-18.04
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-    # checkout to the commit that has been pushed
-    - uses: actions/checkout@v3
-      with:
-        submodules: true  # Fetch Hugo themes (true OR recursive)
-        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-    
-    # install Hugo
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2.5.0
-      with:
-        hugo-version: 'latest'
-        extended: true
+      - uses: actions/checkout@v2
 
-    # build website
-    - name: Build
-      run: hugo --minify
+      - uses: r-lib/actions/setup-r@v2
 
-    # push the generated content into the `gh-pages` branch.
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3.8.0
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_branch: gh-pages
-        publish_dir: ./public
+      - name: Install dependencies
+        run: |
+          install.packages("blogdown")
+          blogdown::install_hugo("0.80.0", extended=TRUE, force=TRUE)
+          blogdown::install_theme(theme="hugo-apero/hugo-apero", force=TRUE)
+        shell: Rscript {0}
+
+      - name: Build website
+        run: |
+          Rscript -e 'blogdown::build_site(baseURL = "https://hugo-apero.github.io/apero/")'
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages  # default
